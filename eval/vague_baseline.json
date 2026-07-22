@@ -1,0 +1,353 @@
+{
+  "config": {
+    "db": "pdf_data.db",
+    "mode": "hybrid",
+    "top_k": 8,
+    "alpha": 0.6,
+    "char_budget": 12000,
+    "rerank": true,
+    "query_transform": false,
+    "judge_model": null
+  },
+  "aggregate": {
+    "n_items": 6,
+    "retrieval": {
+      "hit@8": 0.833,
+      "recall@8": 0.229,
+      "mrr": 0.639,
+      "n_scored": 6
+    }
+  },
+  "items": [
+    {
+      "question": "How long has the company been around?",
+      "answer": "The company, Microsoft, was founded in 1975 (rep.pdf, p.2), and as of the fiscal year 2024, it has entered its 50th year (rep.pdf, p.2).",
+      "reference_answer": "Microsoft was founded in 1975, so around 50 years.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.012680785123966943,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.012983204478805653,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.011410290589176218,
+          "citation": "rep.pdf · p.8"
+        },
+        {
+          "rank": 4,
+          "score": 0.011112523839796567,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 5,
+          "score": 0.012396694214876033,
+          "citation": "rep.pdf · p.85"
+        },
+        {
+          "rank": 6,
+          "score": 0.013141850697737434,
+          "citation": "rep.pdf · p.11 · \"What We Offer\""
+        },
+        {
+          "rank": 7,
+          "score": 0.011639118457300276,
+          "citation": "rep.pdf · p.66"
+        },
+        {
+          "rank": 8,
+          "score": 0.01151605473513074,
+          "citation": "rep.pdf · p.23 · \"Investing in the Future\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Tell me about the supermarket using AI for shopping predictions.",
+      "answer": "The supermarket using AI for shopping predictions is Coles, which is generating 1.6 billion daily AI predictions across 850 Australian stores, ensuring every shopper finds what they need (rep.pdf, p.2).",
+      "reference_answer": "Coles is generating 1.6 billion daily AI predictions across 850 Australian stores.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.01608118657298985,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.015989911727616643,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.01548076923076923,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.013823857302118173,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 5,
+          "score": 0.011075069508804448,
+          "citation": "rep.pdf · p.2 · \"AGE OF AI\""
+        },
+        {
+          "rank": 6,
+          "score": 0.012833008447043534,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 7,
+          "score": 0.012751779494169316,
+          "citation": "rep.pdf · p.11 · \"Embracing Our Future\""
+        },
+        {
+          "rank": 8,
+          "score": 0.011305785123966943,
+          "citation": "rep.pdf · p.3"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 2,
+        "reciprocal_rank": 0.5,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What's that African fintech helping street sellers get loans?",
+      "answer": "The African fintech helping street vendors get loans is M-Kopa, a social enterprise using Azure ML to do its forecasting (rep.pdf, p.2).",
+      "reference_answer": "M-Kopa, a social enterprise in Kenya, uses Azure ML for forecasting to give street vendors access to credit.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.016234796404019036,
+          "citation": "rep.pdf · p.15 · \"Addressing Racial Injustice and Inequity\""
+        },
+        {
+          "rank": 2,
+          "score": 0.016287678476996297,
+          "citation": "rep.pdf · p.15 · \"Addressing Racial Injustice and Inequity\""
+        },
+        {
+          "rank": 3,
+          "score": 0.015244755244755244,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.012829594647776466,
+          "citation": "rep.pdf · p.53 · \"Financial Instruments\""
+        },
+        {
+          "rank": 5,
+          "score": 0.01266499582289056,
+          "citation": "rep.pdf · p.15 · \"Addressing Racial Injustice and Inequity\""
+        },
+        {
+          "rank": 6,
+          "score": 0.014793678665496048,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 7,
+          "score": 0.011200521966072206,
+          "citation": "rep.pdf · p.61 · \"Credit\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012001437297879987,
+          "citation": "rep.pdf · p.53 · \"Investments\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 3,
+        "reciprocal_rank": 0.333,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Who's the boss writing to investors and which year is it for?",
+      "answer": "The documents do not contain information about who the specific boss is, but it appears to be from Microsoft as indicated by their internet address www.microsoft.com (rep.pdf, p.26). The year mentioned is fiscal year 2024, as stated in the context of their Form 10-K (rep.pdf, p.26).",
+      "reference_answer": "Satya Nadella wrote the shareholder letter, covering fiscal year 2024.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.013657407407407406,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 2,
+          "score": 0.014313271604938272,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 3,
+          "score": 0.014597970335675253,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 4,
+          "score": 0.01555977229601518,
+          "citation": "rep.pdf · p.90 · \"INVESTOR RELATIONS\""
+        },
+        {
+          "rank": 5,
+          "score": 0.013333333333333332,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 6,
+          "score": 0.014589026697498425,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 7,
+          "score": 0.011200521966072206,
+          "citation": "rep.pdf · p.82 · \"Opinion on the Financial Statements\""
+        },
+        {
+          "rank": 8,
+          "score": 0.01151605473513074,
+          "citation": "rep.pdf · p.52"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.125,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 1,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What big customers are using the AI assistant in Office?",
+      "answer": "According to the excerpts (rep.pdf, p.2), some big customers using Microsoft 365 Copilot include Amgen, Disney, Finastra, and Vodafone.",
+      "reference_answer": "Amgen, Disney, Finastra, and Vodafone are named as using Microsoft 365 Copilot.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.012972027972027973,
+          "citation": "rep.pdf · p.13"
+        },
+        {
+          "rank": 2,
+          "score": 0.01423076923076923,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.013399668325041459,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        },
+        {
+          "rank": 4,
+          "score": 0.013758943313153551,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 5,
+          "score": 0.014569805194805194,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 6,
+          "score": 0.011756489349319055,
+          "citation": "rep.pdf · p.3"
+        },
+        {
+          "rank": 7,
+          "score": 0.012347826086956521,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        },
+        {
+          "rank": 8,
+          "score": 0.013186191284663272,
+          "citation": "rep.pdf · p.2"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.5,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 4,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What does the delivery app let the driver do?",
+      "answer": "The documents do not contain information about a delivery app or its features for drivers.",
+      "reference_answer": "The OCR document describes user stories for the delivery driver (livreur) managing deliveries.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.012983204478805653,
+          "citation": "rep.pdf · p.16"
+        },
+        {
+          "rank": 2,
+          "score": 0.011307884035156762,
+          "citation": "rep.pdf · p.21 · \"Search and News Advertising\""
+        },
+        {
+          "rank": 3,
+          "score": 0.012829594647776466,
+          "citation": "rep.pdf · p.20 · \"Devices\""
+        },
+        {
+          "rank": 4,
+          "score": 0.012538674482983228,
+          "citation": "rep.pdf · p.83"
+        },
+        {
+          "rank": 5,
+          "score": 0.012105263157894737,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 6,
+          "score": 0.012301790281329923,
+          "citation": "rep.pdf · p.12 · \"Reinvent Productivity and Business Processes\""
+        },
+        {
+          "rank": 7,
+          "score": 0.012411100264956072,
+          "citation": "rep.pdf · p.13 · \"Create More Personal Computing\""
+        },
+        {
+          "rank": 8,
+          "score": 0.013141850697737434,
+          "citation": "rep.pdf · p.25 · \"Partner Programs\""
+        }
+      ],
+      "retrieval": {
+        "hit": false,
+        "recall": 0.0,
+        "first_relevant_rank": null,
+        "reciprocal_rank": 0.0,
+        "n_relevant": 0,
+        "n_retrieved": 8
+      }
+    }
+  ]
+}

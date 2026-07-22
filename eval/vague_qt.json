@@ -1,0 +1,353 @@
+{
+  "config": {
+    "db": "pdf_data.db",
+    "mode": "hybrid",
+    "top_k": 8,
+    "alpha": 0.6,
+    "char_budget": 12000,
+    "rerank": true,
+    "query_transform": true,
+    "judge_model": null
+  },
+  "aggregate": {
+    "n_items": 6,
+    "retrieval": {
+      "hit@8": 0.833,
+      "recall@8": 0.271,
+      "mrr": 0.722,
+      "n_scored": 6
+    }
+  },
+  "items": [
+    {
+      "question": "How long has the company been around?",
+      "answer": "",
+      "reference_answer": "Microsoft was founded in 1975, so around 50 years.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.04191400949796473,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.057217596832234846,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.030798389007344232,
+          "citation": "rep.pdf · p.85"
+        },
+        {
+          "rank": 4,
+          "score": 0.045811569380467584,
+          "citation": "rep.pdf · p.11 · \"What We Offer\""
+        },
+        {
+          "rank": 5,
+          "score": 0.031024531024531024,
+          "citation": "rep.pdf · p.22"
+        },
+        {
+          "rank": 6,
+          "score": 0.016129032258064516,
+          "citation": "rep.pdf · p.11 · \"BUSINESS\""
+        },
+        {
+          "rank": 7,
+          "score": 0.02690501986276634,
+          "citation": "rep.pdf · p.89 · \"DIRECTORS Satya Nadella Chairman and Chief Executive Officer, Microsoft Corporation\""
+        },
+        {
+          "rank": 8,
+          "score": 0.03128054740957967,
+          "citation": "rep.pdf · p.89 · \"DIRECTORS Satya Nadella Chairman and Chief Executive Officer, Microsoft Corporation\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Tell me about the supermarket using AI for shopping predictions.",
+      "answer": "",
+      "reference_answer": "Coles is generating 1.6 billion daily AI predictions across 850 Australian stores.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.06302657915561141,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.06351569577376029,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.061868555745122775,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.056239851170854394,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 5,
+          "score": 0.05411704423603845,
+          "citation": "rep.pdf · p.11 · \"Embracing Our Future\""
+        },
+        {
+          "rank": 6,
+          "score": 0.024562989752863168,
+          "citation": "rep.pdf · p.3"
+        },
+        {
+          "rank": 7,
+          "score": 0.02353266888150609,
+          "citation": "rep.pdf · p.2 · \"AGE OF AI\""
+        },
+        {
+          "rank": 8,
+          "score": 0.027479766610201392,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What's that African fintech helping street sellers get loans?",
+      "answer": "",
+      "reference_answer": "M-Kopa, a social enterprise in Kenya, uses Azure ML for forecasting to give street vendors access to credit.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.06401209677419355,
+          "citation": "rep.pdf · p.15 · \"Addressing Racial Injustice and Inequity\""
+        },
+        {
+          "rank": 2,
+          "score": 0.06505334374186833,
+          "citation": "rep.pdf · p.15 · \"Addressing Racial Injustice and Inequity\""
+        },
+        {
+          "rank": 3,
+          "score": 0.059255094859603064,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.05893201564640565,
+          "citation": "rep.pdf · p.53 · \"Financial Instruments\""
+        },
+        {
+          "rank": 5,
+          "score": 0.03950838839492074,
+          "citation": "rep.pdf · p.15 · \"Addressing Racial Injustice and Inequity\""
+        },
+        {
+          "rank": 6,
+          "score": 0.045928030303030304,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 7,
+          "score": 0.02557875991581674,
+          "citation": "rep.pdf · p.53 · \"Investments\""
+        },
+        {
+          "rank": 8,
+          "score": 0.014285714285714285,
+          "citation": "rep.pdf · p.11 · \"BUSINESS\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 3,
+        "reciprocal_rank": 0.333,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Who's the boss writing to investors and which year is it for?",
+      "answer": "",
+      "reference_answer": "Satya Nadella wrote the shareholder letter, covering fiscal year 2024.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.0577204572853307,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 2,
+          "score": 0.061072261072261075,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 3,
+          "score": 0.0637560803891449,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 4,
+          "score": 0.06530936012691697,
+          "citation": "rep.pdf · p.90 · \"INVESTOR RELATIONS\""
+        },
+        {
+          "rank": 5,
+          "score": 0.06352408975359795,
+          "citation": "rep.pdf · p.26"
+        },
+        {
+          "rank": 6,
+          "score": 0.03901914295749912,
+          "citation": "rep.pdf · p.82 · \"Opinion on the Financial Statements\""
+        },
+        {
+          "rank": 7,
+          "score": 0.03883690708252112,
+          "citation": "rep.pdf · p.52"
+        },
+        {
+          "rank": 8,
+          "score": 0.037639160597418314,
+          "citation": "rep.pdf · p.26"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.125,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 1,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What big customers are using the AI assistant in Office?",
+      "answer": "",
+      "reference_answer": "Amgen, Disney, Finastra, and Vodafone are named as using Microsoft 365 Copilot.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.030886196246139225,
+          "citation": "rep.pdf · p.13"
+        },
+        {
+          "rank": 2,
+          "score": 0.05800771156996625,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 3,
+          "score": 0.05478828799724322,
+          "citation": "rep.pdf · p.3"
+        },
+        {
+          "rank": 4,
+          "score": 0.04249902075989033,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        },
+        {
+          "rank": 5,
+          "score": 0.04510903806678455,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 6,
+          "score": 0.04030027943071421,
+          "citation": "rep.pdf · p.12 · \"Build the Intelligent Cloud and Intelligent Edge Platform\""
+        },
+        {
+          "rank": 7,
+          "score": 0.02758751902587519,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 8,
+          "score": 0.04091307066916823,
+          "citation": "rep.pdf · p.22 · \"Product and Service Development, and Intellectual Property\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.625,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 5,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What does the delivery app let the driver do?",
+      "answer": "",
+      "reference_answer": "The OCR document describes user stories for the delivery driver (livreur) managing deliveries.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.057420323549355806,
+          "citation": "rep.pdf · p.16"
+        },
+        {
+          "rank": 2,
+          "score": 0.024250440917107582,
+          "citation": "rep.pdf · p.21 · \"Search and News Advertising\""
+        },
+        {
+          "rank": 3,
+          "score": 0.05698223431498079,
+          "citation": "rep.pdf · p.83"
+        },
+        {
+          "rank": 4,
+          "score": 0.042837143650499815,
+          "citation": "rep.pdf · p.12 · \"Reinvent Productivity and Business Processes\""
+        },
+        {
+          "rank": 5,
+          "score": 0.026709401709401708,
+          "citation": "rep.pdf · p.13 · \"Create More Personal Computing\""
+        },
+        {
+          "rank": 6,
+          "score": 0.06362179985690734,
+          "citation": "rep.pdf · p.25 · \"Partner Programs\""
+        },
+        {
+          "rank": 7,
+          "score": 0.059786395328097035,
+          "citation": "rep.pdf · p.20 · \"Devices\""
+        },
+        {
+          "rank": 8,
+          "score": 0.060989145427608846,
+          "citation": "rep.pdf · p.24"
+        }
+      ],
+      "retrieval": {
+        "hit": false,
+        "recall": 0.0,
+        "first_relevant_rank": null,
+        "reciprocal_rank": 0.0,
+        "n_relevant": 0,
+        "n_retrieved": 8
+      }
+    }
+  ]
+}

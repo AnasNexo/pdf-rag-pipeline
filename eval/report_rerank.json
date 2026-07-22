@@ -1,0 +1,446 @@
+{
+  "config": {
+    "db": "pdf_data.db",
+    "mode": "hybrid",
+    "top_k": 8,
+    "alpha": 0.6,
+    "char_budget": 12000,
+    "judge_model": "llama-3.3-70b-versatile"
+  },
+  "aggregate": {
+    "n_items": 7,
+    "retrieval": {
+      "hit@8": 1.0,
+      "recall@8": 0.458,
+      "mrr": 1.0,
+      "n_scored": 6
+    },
+    "answer_quality": {
+      "faithfulness": 5.0,
+      "relevance": 5.0,
+      "correctness": 4.43,
+      "n_scored": 7
+    }
+  },
+  "items": [
+    {
+      "question": "In what year was Microsoft founded?",
+      "answer": "Microsoft was founded in 1975 (rep.pdf, p.2 and rep.pdf, p.11, \"What We Offer\").",
+      "reference_answer": "Microsoft was founded in 1975.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.016129032258064516,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.016086065573770493,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.014487179487179487,
+          "citation": "rep.pdf · p.11 · \"What We Offer\""
+        },
+        {
+          "rank": 4,
+          "score": 0.011877213695395515,
+          "citation": "rep.pdf · p.27 · \"OPERATIONS\""
+        },
+        {
+          "rank": 5,
+          "score": 0.012680785123966943,
+          "citation": "rep.pdf · p.1"
+        },
+        {
+          "rank": 6,
+          "score": 0.012536554354736173,
+          "citation": "rep.pdf · p.89 · \"DIRECTORS AND EXECUTIVE OFFICERS OF MICROSOFT CORPORATION\""
+        },
+        {
+          "rank": 7,
+          "score": 0.012475759534583065,
+          "citation": "rep.pdf · p.10 · \"COMPARISON OF 5 YEAR CUMULATIVE TOTAL RETURN*\""
+        },
+        {
+          "rank": 8,
+          "score": 0.010909992561368709,
+          "citation": "rep.pdf · p.27 · \"OPERATIONS\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      },
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 5,
+        "rationale": "The system answer is fully grounded in the context, directly answers the question, and matches the reference answer."
+      }
+    },
+    {
+      "question": "How many daily AI predictions is Coles generating, and across how many stores?",
+      "answer": "Coles is generating 1.6 billion daily AI predictions across 850 Australian stores (rep.pdf, p.2).",
+      "reference_answer": "Coles is generating 1.6 billion daily AI predictions across 850 Australian stores.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.01602662570404506,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.016287678476996297,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.015384615384615384,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.013333333333333334,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        },
+        {
+          "rank": 5,
+          "score": 0.011877213695395515,
+          "citation": "rep.pdf · p.2 · \"AGE OF AI\""
+        },
+        {
+          "rank": 6,
+          "score": 0.012396694214876033,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 7,
+          "score": 0.012001437297879987,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 8,
+          "score": 0.011200521966072206,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      },
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 5,
+        "rationale": "The system answer is directly supported by the context and matches the reference answer exactly."
+      }
+    },
+    {
+      "question": "How is M-Kopa using Azure ML in Kenya?",
+      "answer": "M-Kopa, a social enterprise in Kenya, is using Azure ML for forecasting, which has enabled street vendors to have access to credit for the first time (rep.pdf, p.2).",
+      "reference_answer": "M-Kopa, a social enterprise in Kenya, uses Azure ML for forecasting, giving street vendors access to credit for the first time.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.016287678476996297,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.015625,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.015384615384615384,
+          "citation": "rep.pdf · p.18 · \"Server Products and Cloud Services\""
+        },
+        {
+          "rank": 4,
+          "score": 0.012192637858286046,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        },
+        {
+          "rank": 5,
+          "score": 0.012512218963831867,
+          "citation": "rep.pdf · p.13"
+        },
+        {
+          "rank": 6,
+          "score": 0.01059248050285182,
+          "citation": "rep.pdf · p.13"
+        },
+        {
+          "rank": 7,
+          "score": 0.012231819448314293,
+          "citation": "rep.pdf · p.18 · \"Server Products and Cloud Services\""
+        },
+        {
+          "rank": 8,
+          "score": 0.011097992916174734,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      },
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 5,
+        "rationale": "The system answer is fully grounded in the context, directly addresses the question, and matches the reference answer."
+      }
+    },
+    {
+      "question": "Which companies are named as using Microsoft 365 Copilot?",
+      "answer": "The documents do not contain information about specific companies named as using Microsoft 365 Copilot.",
+      "reference_answer": "Amgen, Disney, Finastra, and Vodafone are named as using Microsoft 365 Copilot.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.012112890922959573,
+          "citation": "rep.pdf · p.5"
+        },
+        {
+          "rank": 2,
+          "score": 0.014821428571428572,
+          "citation": "rep.pdf · p.5"
+        },
+        {
+          "rank": 3,
+          "score": 0.014379084967320262,
+          "citation": "rep.pdf · p.79 · \"Productivity and Business Processes\""
+        },
+        {
+          "rank": 4,
+          "score": 0.015682382133995035,
+          "citation": "rep.pdf · p.16 · \"Productivity and Business Processes\""
+        },
+        {
+          "rank": 5,
+          "score": 0.015932377049180328,
+          "citation": "rep.pdf · p.12 · \"Reinvent Productivity and Business Processes\""
+        },
+        {
+          "rank": 6,
+          "score": 0.015241470979175897,
+          "citation": "rep.pdf · p.12 · \"Reinvent Productivity and Business Processes\""
+        },
+        {
+          "rank": 7,
+          "score": 0.015831265508684862,
+          "citation": "rep.pdf · p.16 · \"Productivity and Business Processes\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012474497231127951,
+          "citation": "rep.pdf · p.4"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 1.0,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 8,
+        "n_retrieved": 8
+      },
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 1,
+        "rationale": "The system answer is faithful to the context and directly addresses the question, but it contradicts the reference answer, which provides specific company names."
+      }
+    },
+    {
+      "question": "Who wrote the shareholder letter and what fiscal year does it cover?",
+      "answer": "The shareholder letter was written by Satya Nadella, the Chairman and Chief Executive Officer of Microsoft (rep.pdf · p.8). The letter is dated October 18, 2024, but it does not explicitly state the fiscal year it covers. However, based on the context of the report, it can be inferred that the letter covers Fiscal Year 2024 (rep.pdf · p.31, \"Fiscal Year 2024 Compared with Fiscal Year 2023\").",
+      "reference_answer": "Satya Nadella wrote the letter, covering fiscal year 2024.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.011112523839796567,
+          "citation": "rep.pdf · p.31 · \"Fiscal Year 2024 Compared with Fiscal Year 2023\""
+        },
+        {
+          "rank": 2,
+          "score": 0.011064425770308122,
+          "citation": "rep.pdf · p.77 · \"Dividends\""
+        },
+        {
+          "rank": 3,
+          "score": 0.012396694214876033,
+          "citation": "rep.pdf · p.48"
+        },
+        {
+          "rank": 4,
+          "score": 0.015315517628565012,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 5,
+          "score": 0.012536554354736173,
+          "citation": "rep.pdf · p.77"
+        },
+        {
+          "rank": 6,
+          "score": 0.01151605473513074,
+          "citation": "rep.pdf · p.8"
+        },
+        {
+          "rank": 7,
+          "score": 0.012755598831548198,
+          "citation": "rep.pdf · p.90 · \"INVESTOR RELATIONS\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012680785123966943,
+          "citation": "rep.pdf · p.76"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      },
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 5,
+        "rationale": "The system answer is fully grounded in the context, directly addresses the question, and matches the reference answer."
+      }
+    },
+    {
+      "question": "Que permet l'application décrite dans le document OCR pour le livreur?",
+      "answer": "L'application décrite dans le document OCR permet au livreur de :\n- Voir les commandes qui lui sont assignées (US07) (ocr.pdf, p.1)\n- Mettre à jour le statut des livraisons (US08) (ocr.pdf, p.1)\n- Contacter les clients afin de clarifier les détails de la livraison si nécessaire (US09) (ocr.pdf, p.1)\n- Voir l'itinéraire optimal pour ses livraisons afin de gagner du temps et de l'essence (US10) (ocr.pdf, p.1)",
+      "reference_answer": "L'application concerne la gestion des livraisons pour le livreur (user stories en français).",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.016185271922976842,
+          "citation": "ocr.pdf · p.1"
+        },
+        {
+          "rank": 2,
+          "score": 0.015275142314990511,
+          "citation": "ocr.pdf · p.1"
+        },
+        {
+          "rank": 3,
+          "score": 0.015253029223093371,
+          "citation": "ocr.pdf · p.1"
+        },
+        {
+          "rank": 4,
+          "score": 0.010900721832827701,
+          "citation": "rep.pdf · p.17 · \"Office Consumer\""
+        },
+        {
+          "rank": 5,
+          "score": 0.011305785123966943,
+          "citation": "test.pdf · p.17"
+        },
+        {
+          "rank": 6,
+          "score": 0.011200521966072206,
+          "citation": "test.pdf · p.17"
+        },
+        {
+          "rank": 7,
+          "score": 0.011756489349319055,
+          "citation": "test.pdf · p.24"
+        },
+        {
+          "rank": 8,
+          "score": 0.010928826939681755,
+          "citation": "rep.pdf · p.89 · \"Bradford L. Smith Vice Chair and President\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      },
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 5,
+        "rationale": "The system answer is fully grounded in the context, directly addresses the question, and matches the reference answer by providing relevant user stories for the livreur."
+      }
+    },
+    {
+      "question": "What was Tesla's total revenue in 2023?",
+      "answer": "The documents do not contain information about Tesla.",
+      "reference_answer": "The documents do not contain information about Tesla's revenue.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.014433766723195778,
+          "citation": "rep.pdf · p.73 · \"Total $ 60,184 $ 53,813\""
+        },
+        {
+          "rank": 2,
+          "score": 0.01461569095977698,
+          "citation": "rep.pdf · p.73 · \"Total $ 60,184 $ 53,813\""
+        },
+        {
+          "rank": 3,
+          "score": 0.015406836783822823,
+          "citation": "rep.pdf · p.81 · \"Total $ 245,122 $ 211,915 $ 198,270\""
+        },
+        {
+          "rank": 4,
+          "score": 0.013734335839598997,
+          "citation": "rep.pdf · p.32 · \"Fiscal Year 2024 Compared with Fiscal Year 2023\""
+        },
+        {
+          "rank": 5,
+          "score": 0.01208931873133267,
+          "citation": "rep.pdf · p.81"
+        },
+        {
+          "rank": 6,
+          "score": 0.01446917808219178,
+          "citation": "rep.pdf · p.44 · \"Total revenue 245,122 211,915 198,270\""
+        },
+        {
+          "rank": 7,
+          "score": 0.01345029239766082,
+          "citation": "rep.pdf · p.77 · \"Dividends\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012986156888595914,
+          "citation": "rep.pdf · p.32"
+        }
+      ],
+      "judge": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "correctness": 5,
+        "rationale": "The system answer correctly states that the documents do not contain information about Tesla, which aligns with the reference answer and is supported by the context."
+      }
+    }
+  ]
+}

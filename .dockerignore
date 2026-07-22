@@ -1,0 +1,31 @@
+# Keep the build context small and secrets/local data out of the image.
+
+# Secrets & local data
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+
+# Python caches / virtualenvs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Version control & editor / tooling
+.git/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.claude/
+
+# Docs and eval artifacts not needed at runtime
+eval/report_*.json
+eval/vague_*.json
+eval/*_run.log

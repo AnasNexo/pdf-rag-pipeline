@@ -1,0 +1,20 @@
+# PDF parsing & rendering
+pymupdf
+pdfplumber
+camelot-py[cv]
+opencv-python-headless
+
+# OCR
+rapidocr_onnxruntime
+pillow
+numpy
+
+# Embeddings & retrieval
+sentence-transformers
+
+# LLM (vision descriptions + Q&A/summarisation) — multi-provider with rotation
+google-genai
+groq
+
+# Web interface
+streamlit

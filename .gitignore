@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Secrets & environment
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.key
+.streamlit/secrets.toml
+
+# ---------------------------------------------------------------------------
+# Generated data — the corpus DB is built locally by `ingest` (may contain
+# personal/private documents). Never commit it.
+# ---------------------------------------------------------------------------
+*.db
+*.db-shm
+*.db-wal
+
+# Scratch eval artifacts
+eval/_smoke*.json
+eval/_smoke*.jsonl
+eval/*_run.log
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# Editor / OS / local tooling
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.claude/settings.local.json

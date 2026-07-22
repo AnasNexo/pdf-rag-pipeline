@@ -1,0 +1,400 @@
+{
+  "config": {
+    "db": "pdf_data.db",
+    "mode": "hybrid",
+    "top_k": 8,
+    "alpha": 0.6,
+    "char_budget": 12000,
+    "rerank": true,
+    "query_transform": false,
+    "judge_model": null
+  },
+  "aggregate": {
+    "n_items": 7,
+    "retrieval": {
+      "hit@8": 1.0,
+      "recall@8": 0.438,
+      "mrr": 0.917,
+      "n_scored": 6
+    }
+  },
+  "items": [
+    {
+      "question": "In what year was Microsoft founded?",
+      "answer": "",
+      "reference_answer": "Microsoft was founded in 1975.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.016287678476996297,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.015927419354838712,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.01578814627994956,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.01386938202247191,
+          "citation": "rep.pdf · p.27 · \"OPERATIONS\""
+        },
+        {
+          "rank": 5,
+          "score": 0.01289541918755402,
+          "citation": "rep.pdf · p.11 · \"What We Offer\""
+        },
+        {
+          "rank": 6,
+          "score": 0.012829594647776466,
+          "citation": "rep.pdf · p.27 · \"OPERATIONS\""
+        },
+        {
+          "rank": 7,
+          "score": 0.011200521966072206,
+          "citation": "rep.pdf · p.87 · \"Opinion on Internal Control over Financial Reporting\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012396694214876033,
+          "citation": "rep.pdf · p.1"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "How many daily AI predictions is Coles generating, and across how many stores?",
+      "answer": "",
+      "reference_answer": "Coles is generating 1.6 billion daily AI predictions across 850 Australian stores.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.01608118657298985,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.016185271922976842,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.016129032258064516,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.015244755244755244,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 5,
+          "score": 0.015625,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 6,
+          "score": 0.01428855721393035,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        },
+        {
+          "rank": 7,
+          "score": 0.01051423324150597,
+          "citation": "rep.pdf · p.5"
+        },
+        {
+          "rank": 8,
+          "score": 0.011877213695395515,
+          "citation": "rep.pdf · p.2 · \"AGE OF AI\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.5,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 4,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "How is M-Kopa using Azure ML in Kenya?",
+      "answer": "",
+      "reference_answer": "M-Kopa, a social enterprise in Kenya, uses Azure ML for forecasting, giving street vendors access to credit for the first time.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.016185271922976842,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.016129032258064516,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.01608118657298985,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 4,
+          "score": 0.011422413793103449,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 5,
+          "score": 0.012214452214452214,
+          "citation": "rep.pdf · p.18 · \"Server Products and Cloud Services\""
+        },
+        {
+          "rank": 6,
+          "score": 0.014247805674627474,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 7,
+          "score": 0.015200918484500572,
+          "citation": "rep.pdf · p.18 · \"Server Products and Cloud Services\""
+        },
+        {
+          "rank": 8,
+          "score": 0.013972701149425287,
+          "citation": "rep.pdf · p.3 · \"OUR OPPORTUNITY\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.5,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 4,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Which companies are named as using Microsoft 365 Copilot?",
+      "answer": "",
+      "reference_answer": "Amgen, Disney, Finastra, and Vodafone are named as using Microsoft 365 Copilot.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.012870340872889454,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 2,
+          "score": 0.011896011977677964,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.011637239165329053,
+          "citation": "rep.pdf · p.5"
+        },
+        {
+          "rank": 4,
+          "score": 0.014130434782608696,
+          "citation": "rep.pdf · p.5"
+        },
+        {
+          "rank": 5,
+          "score": 0.014700704225352112,
+          "citation": "rep.pdf · p.5"
+        },
+        {
+          "rank": 6,
+          "score": 0.015157612340710933,
+          "citation": "rep.pdf · p.16 · \"Productivity and Business Processes\""
+        },
+        {
+          "rank": 7,
+          "score": 0.01471022128556375,
+          "citation": "rep.pdf · p.4"
+        },
+        {
+          "rank": 8,
+          "score": 0.015172735760971055,
+          "citation": "rep.pdf · p.79 · \"Productivity and Business Processes\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.25,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 2,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Who wrote the shareholder letter and what fiscal year does it cover?",
+      "answer": "",
+      "reference_answer": "Satya Nadella wrote the letter, covering fiscal year 2024.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.015682382133995035,
+          "citation": "rep.pdf · p.39 · \"Dividends\""
+        },
+        {
+          "rank": 2,
+          "score": 0.013666279519938056,
+          "citation": "rep.pdf · p.2"
+        },
+        {
+          "rank": 3,
+          "score": 0.011112523839796567,
+          "citation": "rep.pdf · p.31 · \"Fiscal Year 2024 Compared with Fiscal Year 2023\""
+        },
+        {
+          "rank": 4,
+          "score": 0.013796461613374451,
+          "citation": "rep.pdf · p.9 · \"Dividends\""
+        },
+        {
+          "rank": 5,
+          "score": 0.012261009004563958,
+          "citation": "rep.pdf · p.77"
+        },
+        {
+          "rank": 6,
+          "score": 0.013616200578592093,
+          "citation": "rep.pdf · p.8"
+        },
+        {
+          "rank": 7,
+          "score": 0.011208677685950413,
+          "citation": "rep.pdf · p.90 · \"INVESTOR RELATIONS\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012396694214876033,
+          "citation": "rep.pdf · p.9"
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.625,
+        "first_relevant_rank": 2,
+        "reciprocal_rank": 0.5,
+        "n_relevant": 5,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "Que permet l'application décrite dans le document OCR pour le livreur?",
+      "answer": "",
+      "reference_answer": "L'application concerne la gestion des livraisons pour le livreur (user stories en français).",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.01602662570404506,
+          "citation": "ocr.pdf · p.1"
+        },
+        {
+          "rank": 2,
+          "score": 0.01597542242703533,
+          "citation": "ocr.pdf · p.1"
+        },
+        {
+          "rank": 3,
+          "score": 0.016393442622950817,
+          "citation": "ocr.pdf · p.1"
+        },
+        {
+          "rank": 4,
+          "score": 0.010713192531374349,
+          "citation": "test.pdf · p.6 · \"3.1 Source Material\""
+        },
+        {
+          "rank": 5,
+          "score": 0.012396694214876033,
+          "citation": "test.pdf · p.3 · \"2.1 Swiss German ASR\""
+        },
+        {
+          "rank": 6,
+          "score": 0.012680785123966943,
+          "citation": "test.pdf · p.1 · \"arXiv:2606.07608v1 [cs.CL] 29 May 2026\""
+        },
+        {
+          "rank": 7,
+          "score": 0.010998092816274634,
+          "citation": "test.pdf · p.7 · \"3.5 Subtitle Authorship and Quality\""
+        },
+        {
+          "rank": 8,
+          "score": 0.012129314535731649,
+          "citation": "test.pdf · p.14 · \"6.1 Evidence of Contamination in Published Systems\""
+        }
+      ],
+      "retrieval": {
+        "hit": true,
+        "recall": 0.375,
+        "first_relevant_rank": 1,
+        "reciprocal_rank": 1.0,
+        "n_relevant": 3,
+        "n_retrieved": 8
+      }
+    },
+    {
+      "question": "What was Tesla's total revenue in 2023?",
+      "answer": "",
+      "reference_answer": "The documents do not contain information about Tesla's revenue.",
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.01249243799153055,
+          "citation": "rep.pdf · p.73 · \"Total $ 60,184 $ 53,813\""
+        },
+        {
+          "rank": 2,
+          "score": 0.011460010735373054,
+          "citation": "rep.pdf · p.73 · \"Total $ 60,184 $ 53,813\""
+        },
+        {
+          "rank": 3,
+          "score": 0.014487228364468165,
+          "citation": "rep.pdf · p.31 · \"Fiscal Year 2024 Compared with Fiscal Year 2023\""
+        },
+        {
+          "rank": 4,
+          "score": 0.016129032258064516,
+          "citation": "rep.pdf · p.81 · \"Total $ 245,122 $ 211,915 $ 198,270\""
+        },
+        {
+          "rank": 5,
+          "score": 0.01325629914941422,
+          "citation": "rep.pdf · p.81"
+        },
+        {
+          "rank": 6,
+          "score": 0.011187270501835985,
+          "citation": "rep.pdf · p.32 · \"Fiscal Year 2024 Compared with Fiscal Year 2023\""
+        },
+        {
+          "rank": 7,
+          "score": 0.011208677685950413,
+          "citation": "rep.pdf · p.44 · \"Total revenue 245,122 211,915 198,270\""
+        },
+        {
+          "rank": 8,
+          "score": 0.010990945674044267,
+          "citation": "rep.pdf · p.9 · \"Dividends\""
+        }
+      ]
+    }
+  ]
+}

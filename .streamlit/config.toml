@@ -1,0 +1,15 @@
+# Streamlit app configuration.
+
+[client]
+# "minimal" hides the top-right toolbar entirely — no Deploy button and no
+# (⋮) menu. This also removes the in-UI theme switcher, so the default theme
+# below is locked in.
+toolbarMode = "minimal"
+
+[theme]
+# Locked default theme (the ⋮ switcher is hidden in minimal mode). Dark.
+base = "dark"
+
+[browser]
+# Don't send usage stats to Streamlit.
+gatherUsageStats = false

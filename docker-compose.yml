@@ -1,0 +1,30 @@
+# Run the PDF RAG web app with one command:
+#
+#   1. cp .env.example .env   (then fill in at least one API key)
+#   2. docker compose up --build
+#   3. open http://localhost:8501
+#
+# The corpus database and the downloaded models are kept in named volumes, so
+# your ingested PDFs and cached models survive container restarts.
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    # API keys are read from the environment; .env is loaded automatically.
+    env_file:
+      - .env
+    volumes:
+      # Persist the SQLite corpus DB (a file) across restarts.
+      - rag_db:/app/db
+      # Persist downloaded embedding / reranker / OCR models.
+      - hf_cache:/app/.cache/huggingface
+    # Point the app at the persisted DB location inside the volume.
+    environment:
+      - RAG_DB_PATH=/app/db/pdf_data.db
+    restart: unless-stopped
+
+volumes:
+  rag_db:
+  hf_cache:
