@@ -1,20 +1,27 @@
+# Version ranges pin the major version (the tested set is noted alongside),
+# so a future breaking release cannot silently break a fresh clone while
+# patch and minor updates still come through.
+
 # PDF parsing & rendering
-pymupdf
-pdfplumber
-camelot-py[cv]
-opencv-python-headless
+pymupdf>=1.27,<2            # tested 1.27.2.3
+pdfplumber>=0.11,<0.12      # tested 0.11.9
+camelot-py[cv]>=2.0,<3      # tested 2.0.0  (also needs Ghostscript)
+opencv-python-headless>=4.13,<5   # tested 4.13.0.92
 
 # OCR
-rapidocr_onnxruntime
-pillow
-numpy
+rapidocr_onnxruntime>=1.4,<2   # tested 1.4.4
+pillow>=12.2,<13            # tested 12.2.0
+numpy>=1.26,<2              # tested 1.26.3
 
 # Embeddings & retrieval
-sentence-transformers
+sentence-transformers>=5.5,<6  # tested 5.5.1
 
 # LLM (vision descriptions + Q&A/summarisation) — multi-provider with rotation
-google-genai
-groq
+google-genai>=2.8,<3        # tested 2.8.0
+groq>=1.4,<2                # tested 1.4.0
+
+# Configuration
+python-dotenv>=1.0,<2       # tested 1.2.2  (loads .env automatically)
 
 # Web interface
-streamlit
+streamlit>=1.58,<2          # tested 1.58.0

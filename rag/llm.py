@@ -31,6 +31,11 @@ _QUOTA_SIGNATURES = ("429", "RESOURCE_EXHAUSTED", "rate_limit", "quota",
                      "insufficient_quota", "exceeded")
 #: Transient server errors: retry the SAME provider briefly before rotating.
 _TRANSIENT_SIGNATURES = ("503", "UNAVAILABLE", "overloaded", "500", "internal")
+#: A model this key cannot use (retired, renamed, or not enabled on the
+#: account). Retrying the same key is pointless, but another provider in the
+#: chain may still work — so rotate instead of failing the whole request.
+_MODEL_SIGNATURES = ("model_not_found", "does not exist",
+                     "NOT_FOUND", "not_found_error", "decommissioned")
 
 
 @dataclass
@@ -137,6 +142,15 @@ def _is_quota(msg: str) -> bool:
 def _is_transient(msg: str) -> bool:
     """Whether an error message indicates a transient server error."""
     return any(sig in msg for sig in _TRANSIENT_SIGNATURES)
+
+
+def _is_model_unavailable(msg: str) -> bool:
+    """Whether the configured model is unusable with this key.
+
+    Retired or renamed models make a provider permanently unusable, so the
+    caller should rotate to the next entry in the chain rather than abort.
+    """
+    return any(sig in msg for sig in _MODEL_SIGNATURES)
 
 
 # ---------------------------------------------------------------------------
@@ -251,6 +265,11 @@ def _attempt(system: str, user: str, stream: bool, max_transient_retries: int = 
                           f"same key in 3s...")
                     time.sleep(3)
                     continue
+                if _is_model_unavailable(msg):
+                    print(f"  [{provider.kind}] model '{provider.model}' is "
+                          f"unavailable for this key; rotating. (Update "
+                          f"config.PROVIDER_CHAIN if it was retired.)")
+                    break  # rotate to next provider
                 if _is_quota(msg) or _is_transient(msg):
                     nxt = providers[(idx + 1) % n] if n > 1 else None
                     where = f" -> trying {nxt.kind}" if nxt and offset < n - 1 else ""
@@ -412,7 +431,7 @@ def describe_image(image_bytes: bytes, prompt: str,
         except Exception as e:  # noqa: BLE001 — classify then route
             msg = str(e)
             last_err = e
-            if _is_quota(msg) or _is_transient(msg):
+            if _is_quota(msg) or _is_transient(msg) or _is_model_unavailable(msg):
                 print(f"  [vision/{provider.kind}] exhausted/unavailable; "
                       f"rotating...")
                 continue

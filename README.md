@@ -50,13 +50,23 @@ Two front-ends share the same pipeline:
 ├── app.py                 # Streamlit chat interface (upload, history, streaming answers)
 ├── config.py              # ALL tunable constants (paths, thresholds, models, provider chains)
 ├── requirements.txt
-├── .env.example           # Names of the API-key environment variables to set
+├── .env.example           # Names of the API-key environment variables (copy to .env)
 ├── README.md
+├── tests_smoke.py         # Dependency-free sanity checks (no keys needed)
+├── LICENSE                # MIT
+├── Dockerfile             # Container image (bundles Ghostscript + libGL)
+├── docker-compose.yml     # One-command run; named volumes for DB + model cache
+├── .dockerignore
+├── .streamlit/
+│   └── config.toml        # Streamlit theme / server settings
 ├── data/                  # Sample PDF documents
 ├── pdf_data.db            # SQLite database (created by ingest; not committed)
 ├── eval/                  # Evaluation harness + saved experiment reports
+│   ├── README.md          # How to run the harness and read the reports
 │   ├── evaluate.py        # hit@k / recall@k / MRR + LLM-as-judge answer grading
-│   └── eval_set.jsonl     # Hand-written questions with ground-truth signals
+│   ├── eval_set.jsonl     # Hand-written questions with ground-truth signals
+│   ├── eval_set_vague.jsonl  # Under-specified questions (query-expansion probe)
+│   └── report_*.json      # Saved results, one per experiment configuration
 └── rag/
     ├── __init__.py        # Package overview
     ├── db.py              # SQLite schema, migrations, connections, deletion, diagnostics
@@ -91,6 +101,8 @@ Why this split:
 
 ## Setup & Installation
 
+**Requires Python 3.10+** (tested on 3.10 and, via Docker, 3.11).
+
 1. **Clone the project**, then create and activate a virtual environment:
 
    ```powershell
@@ -108,12 +120,23 @@ Why this split:
 
    Note: `camelot-py[cv]` also requires **Ghostscript** on some systems, and `opencv-python-headless` requires system libraries (`libGL`) on slim Linux. `sentence-transformers` downloads the embedding + reranker models (~100 MB total) on first use.
 
-3. **Set your API keys.** The pipeline reads them from the environment and rotates across every key that is set (Groq first, then Gemini). Copy `.env.example` for the full list of variable names; the minimum is one key:
+3. **Set your API keys.** The pipeline rotates across every key that is set (Groq first, then Gemini); the minimum is one key.
+
+   The simplest way is a `.env` file in the project root — it is loaded
+   automatically on startup, and `.gitignore` already excludes it:
+
+   ```powershell
+   cp .env.example .env     # then open it and fill in at least one key
+   ```
+
+   Real environment variables also work and take precedence over `.env`:
 
    ```powershell
    $env:GROQ_API_KEY_1 = "your-key-here"     # PowerShell
    # export GROQ_API_KEY_1="your-key-here"   # bash
    ```
+
+   See `.env.example` for the full list of variable names.
 
 4. **Put your PDFs in `data/`** (or anywhere — paths are passed explicitly).
 
@@ -225,6 +248,17 @@ In the chat loop you can also ask meta-questions answered straight from the data
 
 7. **Generate (`rag/generator.py` + `rag/llm.py`)** — the context plus the question go to the active LLM (Groq Llama 3.3 70B, rotating to Gemini on quota) with a strict grounding prompt: answer only from the excerpts, cite `(filename, p.N)` inline, and explicitly say when the documents don't contain the answer (including the case where only an image description exists).
 
+## Smoke tests
+
+A dependency-free check that a clone is wired up correctly — every module
+imports, the config and provider chains are consistent, no key material is
+committed, and an ingest-free chunking round-trip plus the FTS5 index work.
+No API keys and no network required:
+
+```powershell
+python tests_smoke.py
+```
+
 ## Evaluation
 
 `eval/evaluate.py` measures the pipeline against a hand-written eval set (`eval/eval_set.jsonl`):
@@ -251,5 +285,10 @@ Saved `eval/report_*.json` files record past experiments (embedding model, reran
 | **pillow** / **numpy** | Image decoding for OCR; vector math for cosine search. |
 | **sentence-transformers** | Dense embeddings (`bge-small-en-v1.5`) and the cross-encoder reranker. |
 | **groq** / **google-genai** | API clients for the vision model (image descriptions) and the chat model (Q&A/summaries), used with key rotation. |
+| **python-dotenv** | Loads API keys from a local `.env` file at startup (optional; real env vars take precedence). |
 | **streamlit** | Web chat interface. |
 | **sqlite3** (stdlib) | Single-file storage for documents, blocks, chunks, FTS5 BM25 index, and embedding blobs — no external vector DB needed. |
+
+## License
+
+MIT — see [LICENSE](LICENSE).

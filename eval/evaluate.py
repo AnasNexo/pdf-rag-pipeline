@@ -55,6 +55,14 @@ import config
 from rag.generator import ask
 from rag.retriever import RetrievedChunk, Retriever
 
+# Windows consoles default to cp1252, which cannot encode the non-ASCII
+# characters that appear in answers and document text (see main.py).
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="backslashreplace")
+    except (AttributeError, ValueError):
+        pass
+
 
 # ---------------------------------------------------------------------------
 # Eval-set loading

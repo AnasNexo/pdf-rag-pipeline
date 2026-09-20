@@ -23,7 +23,8 @@ env/
 .idea/
 .DS_Store
 Thumbs.db
-.claude/
+# Local agent/editor state directories (keep .streamlit, which the app needs)
+.*/settings.local.json
 
 # Docs and eval artifacts not needed at runtime
 eval/report_*.json

@@ -33,6 +33,16 @@ import config
 from rag import db
 from rag.chunker import ChunkConfig, chunk_database
 
+# Windows consoles default to a legacy codepage (cp1252), which raises
+# UnicodeEncodeError when an answer contains an em dash, accent or other
+# non-ASCII character. Force UTF-8 on the streams we print to; "backslash-
+# replace" keeps output flowing even on a terminal that cannot render a glyph.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="backslashreplace")
+    except (AttributeError, ValueError):  # not a reconfigurable stream
+        pass
+
 
 def _add_db_arg(parser: argparse.ArgumentParser) -> None:
     """Attach the shared --db option to a subparser.

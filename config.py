@@ -12,6 +12,19 @@ values, so behaviour can be changed in one place.
 
 import os as _os
 
+# Load a local ".env" file (if present) into the environment before any value
+# below is read, so keys placed there are picked up automatically. Real
+# environment variables always win: .env never overrides an already-set var.
+# python-dotenv is optional — without it, .env is simply ignored and the
+# variables must be exported by hand.
+try:
+    from dotenv import load_dotenv as _load_dotenv
+except ImportError:
+    pass
+else:
+    _load_dotenv(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                               ".env"), override=False)
+
 #: Default SQLite database file. Overridable via the RAG_DB_PATH environment
 #: variable so a container can point it at a persisted volume (see
 #: docker-compose.yml); defaults to a file in the working directory.
@@ -252,29 +265,27 @@ CONTEXT_MIN_TRUNCATED_CHARS = 200
 #: (higher daily limits), then Gemini. Add/remove entries freely; any whose
 #: env var is unset is skipped at startup.
 PROVIDER_CHAIN = [
-    ("groq",   "GROQ_API_KEY_1",   "llama-3.3-70b-versatile"),
-    ("groq",   "GROQ_API_KEY_2",   "llama-3.3-70b-versatile"),
-    ("groq",   "GROQ_API_KEY_3",   "llama-3.3-70b-versatile"),
+    ("groq",   "GROQ_API_KEY_1",   "openai/gpt-oss-120b"),
+    ("groq",   "GROQ_API_KEY_2",   "openai/gpt-oss-120b"),
+    ("groq",   "GROQ_API_KEY_3",   "openai/gpt-oss-120b"),
     ("gemini", "GEMINI_API_KEY_1", "gemini-2.5-flash"),
     ("gemini", "GEMINI_API_KEY_2", "gemini-2.5-flash"),
     ("gemini", "GEMINI_API_KEY_3", "gemini-2.5-flash"),
     # Back-compat: single-key env vars used before rotation existed.
-    ("groq",   "GROQ_API_KEY",     "llama-3.3-70b-versatile"),
+    ("groq",   "GROQ_API_KEY",     "openai/gpt-oss-120b"),
     ("gemini", "GEMINI_API_KEY",   "gemini-2.5-flash"),
 ]
 
 #: Vision failover chain: (provider, env-var, vision-capable model). Image
-#: description rotates over these the same way text does. Both Groq (Llama-4
-#: multimodal) and Gemini can describe images, so vision uses all 6 keys.
-#: Groq first (higher daily limits). Unset keys are skipped.
+#: description rotates over these the same way text does. Gemini only: Groq
+#: has retired its multimodal Llama-4 models, and its current text models
+#: reject image content. Add a Groq entry back if it ships a vision model
+#: again. Unset keys are skipped.
 VISION_PROVIDER_CHAIN = [
-    ("groq",   "GROQ_API_KEY_1",   "meta-llama/llama-4-scout-17b-16e-instruct"),
-    ("groq",   "GROQ_API_KEY_2",   "meta-llama/llama-4-scout-17b-16e-instruct"),
-    ("groq",   "GROQ_API_KEY_3",   "meta-llama/llama-4-scout-17b-16e-instruct"),
     ("gemini", "GEMINI_API_KEY_1", "gemini-2.5-flash"),
     ("gemini", "GEMINI_API_KEY_2", "gemini-2.5-flash"),
     ("gemini", "GEMINI_API_KEY_3", "gemini-2.5-flash"),
-    ("groq",   "GROQ_API_KEY",     "meta-llama/llama-4-scout-17b-16e-instruct"),
+    # Back-compat: single-key env var used before rotation existed.
     ("gemini", "GEMINI_API_KEY",   "gemini-2.5-flash"),
 ]
 
@@ -292,13 +303,18 @@ VISION_CONTEXT_MAX_CHARS = 1500
 # Corpus-specific query routing (chat mode)
 # ---------------------------------------------------------------------------
 # These heuristics route chat questions to a specific document when the
-# question matches a pattern. They are specific to the current corpus
-# (e.g. ocr.pdf contains French user stories labelled US01..US99) —
-# edit or empty this list when the corpus changes.
+# question matches a pattern. They are inherently corpus-specific, so the
+# default is empty: retrieval then searches the whole corpus, which is the
+# right behaviour for an unknown set of PDFs.
+#
+# Add your own rules when a corpus benefits from routing, e.g.:
+#
+#     QUERY_ROUTING_RULES = [
+#         (r"\bUS\d{2}\b", "stories.pdf"),        # "US01" -> user-story doc
+#         (r"\b(invoice|vat|total)\b", "invoice.pdf"),
+#     ]
 
 #: List of (regex_pattern, target_filename) pairs. If a chat query matches
-#: the pattern, retrieval is restricted to the named document.
-QUERY_ROUTING_RULES: list[tuple[str, str]] = [
-    (r"\bUS\d{2}\b", "ocr.pdf"),
-    (r"\b(en tant que|livreur|client|commande|livraison|priorit[eé]|parcourir)\b", "ocr.pdf"),
-]
+#: the pattern, retrieval is restricted to the named document. Empty by
+#: default - every query searches the full corpus.
+QUERY_ROUTING_RULES: list[tuple[str, str]] = []

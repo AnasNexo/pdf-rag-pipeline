@@ -1,7 +1,7 @@
 # PDF RAG Pipeline — container image for the Streamlit web app.
 #
 # Build:  docker build -t pdf-rag .
-# Run:    docker run -p 8501:8501 --env-file .env -v rag_db:/app/pdf_data.db pdf-rag
+# Run:    docker run -p 8501:8501 --env-file .env -v rag_db:/app/db -e RAG_DB_PATH=/app/db/pdf_data.db pdf-rag
 #   (or use docker-compose, which wires the keys and DB volume for you)
 
 FROM python:3.11-slim
